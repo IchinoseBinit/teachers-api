@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="loadDoc()">
+    <h1>Welcome to API List Page</h1>
+    <p id="response">Loading...</p>
+</body>
+
+<script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            // document.getElementById("demo").innerHTML = this.responseText;
+            console.log(this.responseText);
+            let data = JSON.parse(this.responseText);
+            let arr = data["data"];
+            // Array
+            let name = "";
+            console.log(arr);
+            for (let a = 0; a<arr.length; a++) {
+                console.log(arr[a]);
+                name= name + arr[a]["name"] + " ";
+            }
+            // console.log(data);
+            console.log(name);
+            document.getElementById("response").innerHTML = name;
+        }
+        xhttp.open("GET", "http://localhost/api/api.php", true);
+        xhttp.send();
+    }
+</script>
+
+</html>
