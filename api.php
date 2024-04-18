@@ -1,9 +1,6 @@
 <?php
 // Establish database connection
 $servername = "localhost";
-// Variable name = value
-// name = "Binit"
-// String name = "Binit"
 $username = "root";
 $password = "";
 $database = "test2";
@@ -15,10 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 // Connection check
-
-
-$username = $_POST["username"];
-$password = $_POST["password"];
+// echo();
 
 $sql = "SELECT * from TEACHER";
 $result = $conn->query($sql);
